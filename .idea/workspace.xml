@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3e62281a-e973-4d99-9d63-e39583e738f5" name="更改" comment="[HITCON 2016]Leaking.py" />
+    <list default="true" id="3e62281a-e973-4d99-9d63-e39583e738f5" name="更改" comment="add dirsearch">
+      <change afterPath="$PROJECT_DIR$/py/baseDemo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dirsearch/1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dirsearch/1.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,22 +21,22 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "bingkaer"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;bingkaer&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "git@github.com:bingkaer/ctf_Practice.git",
-    "accountId": "dd655c14-98a5-436f-9c55-fb487a412d9c"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:bingkaer/ctf_Practice.git&quot;,
+    &quot;accountId&quot;: &quot;dd655c14-98a5-436f-9c55-fb487a412d9c&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1,
-  "fromUser": false
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1,
+  &quot;fromUser&quot;: false
+}</component>
   <component name="ProjectId" id="3Ii1I9eBRMPvVKwziBSLAiZQi7c" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -48,7 +52,9 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Python.HardSQL_2019.executor": "Run",
     "Python.[HITCON 2016]Leaking.executor": "Run",
+    "Python.baseDemo.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
@@ -56,7 +62,7 @@
     "settings.editor.selected.configurable": "settings.sync"
   }
 }]]></component>
-  <component name="RunManager" selected="Python.[HITCON 2016]Leaking">
+  <component name="RunManager" selected="Python.baseDemo">
     <configuration name="HardSQL_2019" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="ctf_Practice" />
       <option name="ENV_FILES" value="" />
@@ -105,8 +111,33 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="baseDemo" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="ctf_Practice" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/py" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/py/baseDemo.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.baseDemo" />
         <item itemvalue="Python.[HITCON 2016]Leaking" />
         <item itemvalue="Python.HardSQL_2019" />
       </list>
@@ -159,7 +190,15 @@
       <option name="project" value="LOCAL" />
       <updated>1788314324448</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add dirsearch">
+      <option name="closed" value="true" />
+      <created>1788318492189</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1788318492189</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,6 +219,7 @@
     <MESSAGE value="initial" />
     <MESSAGE value="HardSQL_2019" />
     <MESSAGE value="[HITCON 2016]Leaking.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="[HITCON 2016]Leaking.py" />
+    <MESSAGE value="add dirsearch" />
+    <option name="LAST_COMMIT_MESSAGE" value="add dirsearch" />
   </component>
 </project>

@@ -1,0 +1,55 @@
+// ~/.config/zed/tasks.json
+[
+    // Python
+    {
+        "label": "py: run current file",
+        "command": "python3 $ZED_RELATIVE_FILE",
+        "use_new_terminal": false,
+    },
+    {
+        "label": "py: pwntools run",
+        "command": "python3 $ZED_RELATIVE_FILE",
+        "env": { "PWNLIB_NOTERM": "1" },
+    },
+    // PHP
+    {
+        "label": "php: run current file",
+        "command": "php $ZED_RELATIVE_FILE",
+    },
+    // JS
+    {
+        "label": "js: run with node",
+        "command": "node $ZED_RELATIVE_FILE",
+    },
+    // Ruby
+    {
+        "label": "rb: run current file",
+        "command": "ruby $ZED_RELATIVE_FILE",
+    },
+    // 渗透常用
+    {
+        "label": "http: python server on 8000",
+        "command": "python3 -m http.server 8000",
+        "use_new_terminal": true,
+    },
+    {
+        "label": "nc: listen on 4444",
+        "command": "nc -lvnp 4444",
+        "use_new_terminal": true,
+    },
+    {
+        "label": "gobuster: dir on $ZED_SELECTED_TEXT",
+        "command": "gobuster dir -u ${ZED_SELECTED_TEXT:http://target} -w /usr/share/seclists/Discovery/Web-Content/common.txt",
+        "use_new_terminal": true,
+    },
+    {
+        "label": "nmap: quick scan $ZED_SELECTED_TEXT",
+        "command": "nmap -sV -sC ${ZED_SELECTED_TEXT:127.0.0.1}",
+        "use_new_terminal": true,
+    },
+    // PHP 调试（配合 Xdebug）
+    {
+        "label": "php: xdebug listen",
+        "command": "echo 'Zed debugger panel will listen on 9003 - use Debug > Start'",
+    },
+]

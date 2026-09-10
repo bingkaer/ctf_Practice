@@ -1,0 +1,32 @@
+// .zed/debug.json
+[
+    // PHP: Xdebug（需要先配好 php.ini 的 xdebug.mode=debug）
+    {
+        "label": "PHP: Listen Xdebug",
+        "adapter": "Xdebug",
+        "request": "launch",
+        "port": 9003,
+    },
+    // Python: debugpy
+    {
+        "label": "Py: Debug current file",
+        "adapter": "debugpy",
+        "request": "launch",
+        "program": "$ZED_FILE",
+        "console": "integratedTerminal",
+    },
+    // Ruby: rdbg
+    {
+        "label": "Ruby: Debug current script",
+        "adapter": "rdbg",
+        "request": "launch",
+        "program": "$ZED_FILE",
+    },
+    // Node.js: js-debug
+    {
+        "label": "Node: Launch current file",
+        "adapter": "js-debug",
+        "request": "launch",
+        "program": "$ZED_FILE",
+    },
+]

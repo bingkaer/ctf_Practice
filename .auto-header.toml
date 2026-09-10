@@ -1,0 +1,21 @@
+[author]
+name = "tushan"
+email = "tushanfirm@foxmail.com"
+
+[project]
+name = "ctf_Practice"
+copyright_holder = "tushanfirm"  # Optional, defaults to author name
+
+[header]
+# The [header] section is OPTIONAL - if omitted, a default template will be used
+# Write your template content WITHOUT comment markers!
+# The extension automatically wraps it with the correct format for each language.
+template = """
+File: {filename}
+Project: {project}
+Author: {author} <{email}>
+Created: {date} {time}
+
+Copyright (c) {year} {copyright_holder}
+All rights reserved.
+"""
